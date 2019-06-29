@@ -1,28 +1,52 @@
-//first test case
 var DeltaHomePage = function() {
-  var SignUp = element(by.xpath('//*[@id="anchor-menu"]/div/div[1]/ul[2]/li[3]/a')); 
-  var DeltaSignUp = element(by.className("sign-up btn btn-link d-none d-lg-block"));
+    // Home-page elements
+    var signUp = element(by.className("sign-up btn btn-link d-none d-lg-block"));
+    var submit = element(by.id("btn-book-submit"));
+    var submitErrorMessage = element(by.id("correctionBar"));
 
-  this.clickDeltaSignUp = function() {
-    DeltaSignUp.click();
-  };
+    // Sign up page buttons
+    var completeBtn = element(by.id("next"));
+    var submitErrorMessageSignUp = element(by.className("toolTipErrorCount"));
 
-  this.clickSignUp = function() {
-    SignUp.click();
-  };
+    this.getErrorMessageOnSignUp = function() {
+        return submitErrorMessageSignUp.getText();
+    };
 
-  this.getTapHomePage = function() {
-    browser.get('https://www.flytap.com');
-  };
+    this.clickCompleteBtn = function() {
+        completeBtn.click();
+    };
 
-  this.getDeltaHomePage = function() {
-    browser.get('https://www.delta.com/');
-  };
+    this.clickDeltaSignUp = function() {
+        SignUp.click();
+    };
 
-  this.getDeltaSignUpPage = function() {
-    browser.get('https://www.delta.com/profile/enrolllanding.action');
-  };
-  
+    this.getText = function() {
+        return submitErrorMessage.getText();
+    };
+
+    this.clickHereWeGo = function() {
+        hereWeGoButton.click();
+    };
+
+    this.submit = function() {
+        submit.click();
+    };
+
+    this.clickSignUpBtn = function() {
+        signUp.click();
+    };
+
+    this.getTapHomePage = function() {
+        browser.get('https://www.flytap.com/en-ro/');
+    };
+
+    this.getDeltaHomePage = function() {
+        browser.get('https://www.delta.com/');
+    };
+
+    this.getDeltaSignUpPage = function() {
+        browser.get('https://www.delta.com/profile/enrolllanding.action');
+    };
 };
 
 module.exports = new DeltaHomePage();
